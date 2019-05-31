@@ -18,11 +18,19 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
-    # ...
+    reverse_digits = reversed(digits)
+    base_ten = 0
+    counter = 0
+    for digit in reverse_digits:
+        base_ten += int(digit)*2**counter
+        counter += 1
+    print(base_ten)
+    return base_ten
     # TODO: Decode digits from hexadecimal (base 16)
     # ...
     # TODO: Decode digits from any base (2 up to 36)
-    # ...
+
+
 
 
 def encode(number, base):
@@ -54,7 +62,7 @@ def convert(digits, base1, base2):
     # TODO: Convert digits from base 2 to base 16 (and vice versa)
     # ...
     # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
+    return decode(digits, base1)
     # TODO: Convert digits from base 10 to base 16 (and vice versa)
     # ...
     # TODO: Convert digits from any base to any base (2 up to 36)
@@ -75,6 +83,7 @@ def main():
     else:
         print('Usage: {} digits base1 base2'.format(sys.argv[0]))
         print('Converts digits from base1 to base2')
+
 
 
 if __name__ == '__main__':
